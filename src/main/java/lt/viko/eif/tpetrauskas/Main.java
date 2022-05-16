@@ -1,25 +1,23 @@
 package lt.viko.eif.tpetrauskas;
 
-import lt.viko.eif.tpetrauskas.service.XMLServiceImpl;
 import org.apache.fop.apps.FOPException;
 
 import javax.xml.transform.TransformerException;
 import java.io.IOException;
 
 /**
- * Main method.
- *
+ * This is a main entity for a main method of this application.
  */
-public class Main
-{
+public class Main {
+    /**
+     * This is a main method of this application.
+     * It reads xsltFileName (.xsl) and xmlSourceName (.xml) files and converts xmlSourceName (.xml) to convertedFileName (.pdf) file.
+     */
     public static void main( String[] args ) {
-        XMLServiceImpl xmlService = new XMLServiceImpl();
-        String xsltFileName = "cars-to-pdf.xsl";
-        String xmlSourceName = "cars-to-pdf.xml";
-        String convertedFileName = "cars.pdf";
+        MainInit init = new MainInit();
 
         try {
-            xmlService.convertToPDF(xsltFileName, xmlSourceName, convertedFileName);
+            init.getXmlService().convertToPDF(init.getXsltFileName(), init.getXmlSourceName(), init.getConvertedFileName());
         } catch (FOPException | IOException | TransformerException e) {
             System.out.println(e.getMessage());
         }

@@ -12,7 +12,21 @@ import java.io.File;
 import java.io.IOException;
 import java.io.OutputStream;
 
+/**
+ * XMLServiceImpl implements convertToPDF() method from XMLService.
+ */
 public class XMLServiceImpl implements XMLService {
+
+    /**
+     * Converts an .xml file to a .pdf file according to .xsl file.
+     *
+     * @param xsltFileName is the name of .xsl file
+     * @param xmlSourceName is the name of .xml file
+     * @param convertedFileName is the name of .pdf file
+     * @throws IOException
+     * @throws FOPException
+     * @throws TransformerException
+     */
     public void convertToPDF(String xsltFileName, String xmlSourceName, String convertedFileName) throws IOException, FOPException, TransformerException {
         // the XSL FO file
         File xsltFile = new File(xsltFileName);
